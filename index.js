@@ -26,7 +26,7 @@ const corsOptions = {
 
 app.use(cors());
 
-app.get('/chichui/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello my server in express');
 });
 
