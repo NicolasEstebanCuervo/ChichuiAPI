@@ -7,7 +7,7 @@ import {
 } from './middlewares/error.handler.js';
 import cors from 'cors';
 
-export const app = express();
+const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
@@ -37,3 +37,5 @@ app.use(boomErrorHandler);
 app.use(errorHandler);
 
 app.listen(port);
+
+export default app
