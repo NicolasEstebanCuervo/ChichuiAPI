@@ -7,8 +7,8 @@ import {
 } from './middlewares/error.handler.js';
 import cors from 'cors';
 
-const app = express();
-const port = 3000;
+export const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -26,7 +26,7 @@ const corsOptions = {
 
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Hello my server in express');
 });
 
