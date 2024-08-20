@@ -4,7 +4,7 @@ import express from 'express';
 
 const routerApi = (app)=>{
   const router = express.Router()
-  app.use('/api/chichui/v1',router)
+  app.use('/api/v1',router)
   router.use('/products',productsRouter)
   router.use('/users', usersRouter)
 }
