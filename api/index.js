@@ -12,17 +12,17 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:3000', 'http://localhost:5500'];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log('origin:', origin, 'not allowed');
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
+// const whitelist = ['http://localhost:3000', 'http://localhost:5500'];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       console.log('origin:', origin, 'not allowed');
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+// };
 
 app.use(cors());
 
