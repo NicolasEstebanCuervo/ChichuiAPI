@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/api/(.*)",
-        "destination": "chichui/api"
+        "destination": "/chichui/api"
       }
     ]
   }
