@@ -7,7 +7,7 @@
 
 Welcome to the documentation for the Chichui API. This API was developed as part of my first backend project using Node.js and Express.js. It uses Faker to generate random data and Joi to validate the fields.
 
-[Chichui API](https://chichui-api.vercel.app/chichui/api/)
+[Chichui API](https://chichui-api.vercel.app)
 
 ## Available Endpoints
 
