@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chichui API Documentation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        padding: 1rem;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+      }
+      h3 {
+        color: #333;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 0.5rem;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      ul li {
+        background: #fff;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      ul li:hover {
+        background: #f9f9f9;
+      }
+      .section {
+        margin-bottom: 1.5rem;
+      }
+      .dependencies {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Chichui API - Practice Project</h1>
+    </header>
+
+    <div class="container">
+      <div class="section">
+        <h3>Introduction</h3>
+        <p>
+          Welcome to the documentation for the Chichui API. This API was
+          developed as part of my first backend project using Node.js and
+          Express.js. It uses Faker to generate random data and JPI to validate
+          the fields.
+        </p>
+        <p>
+          <a href="https://chichui-api.vercel.app/chichui/api/">Chichui API</a>
+        </p>
+      </div>
+
+      <div class="section">
+        <h3>Available Endpoints</h3>
+        <ul>
+          <li>Users</li>
+          <li>Products</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Features</h3>
+
+        <h4>Users</h4>
+        <ul>
+          <li>
+            GET chichui/api/v1/users: Retrieves complete user information.
+          </li>
+          <li>
+            GET chichui/api/v1/users/:id: Retrieves user information by ID.
+          </li>
+          <li>POST chichui/api/v1/users: Creates a new user.</li>
+          <li>
+            PATCH chichui/api/v1/users/:id: Updates a specific field of a user.
+          </li>
+          <li>DELETE chichui/api/v1/users/:id: Deletes a user.</li>
+        </ul>
+
+        <h4>Products</h4>
+        <ul>
+          <li>
+            GET chichui/api/v1/products: Retrieves complete product information.
+          </li>
+          <li>
+            GET chichui/api/v1/products/:id: Retrieves product information by
+            ID.
+          </li>
+          <li>
+            GET chichui/api/v1/products/category/:category: Retrieves products
+            matching a category.
+          </li>
+          <li>POST chichui/api/v1/products: Creates a new product.</li>
+          <li>
+            PATCH chichui/api/v1/products/:id: Updates a specific field of a
+            product.
+          </li>
+          <li>DELETE chichui/api/v1/products/:id: Deletes a product.</li>
+        </ul>
+      </div>
+
+      <div class="section dependencies">
+        <h3>Dependencies</h3>
+        <p>Three dependencies were used for this project:</p>
+        <ul>
+          <li>uuidv4: To generate unique IDs.</li>
+          <li>faker-js: To generate fake information.</li>
+          <li>Joi: To validate creation, editing, and deletion of fields.</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

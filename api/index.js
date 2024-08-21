@@ -6,16 +6,23 @@ import {
   logErrors,
 } from './middlewares/error.handler.js';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 
 const app = express();
-const port = process.env.PORT || 3000
-
+const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.use(cors());
 
-app.get('/chichui/api', (req, res) => {
-  res.send('Hello my server in express');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 routerApi(app);
@@ -26,4 +33,4 @@ app.use(errorHandler);
 
 app.listen(port);
 
-export default app
+export default app;
