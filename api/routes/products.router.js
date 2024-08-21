@@ -1,6 +1,6 @@
 import express from 'express';
 import ProductService from '../services/product.service.js';
-import { validatosHandler } from '../middlewares/validator.handler.js';
+import { validatorHandler } from '../middlewares/validator.handler.js';
 import {
   createProductDTO,
   updateProductDTO,
@@ -10,49 +10,61 @@ import {
 const router = express.Router();
 const service = new ProductService();
 
-router.get('/', async (req, res) => {
-  const products = await service.showAll();
+router.get('/', (req, res) => {
+  const products = service.showAll();
   res.json(products);
 });
 
 router.get('/:id',
-  validatosHandler(getProductDTO, 'params'),
-  async (req, res, next) => {
+  validatorHandler(getProductDTO, 'params'),
+  (req, res, next) => {
   try {
     const { id } = req.params;
-    const product = await service.findOne(id);
+    const product = service.findOne(id);
     res.json(product);
   } catch (error) {
     next(error);
   }
 });
 
+router.get('/category/:category',
+  (req, res, next) => {
+    try {
+      const { category } = req.params;
+      const products = service.findAllByCategory(category);
+      console.log(products)
+      res.json(products);
+    } catch (error) {
+      next(error);
+    }
+  });
+
 router.post('/',
-  validatosHandler(createProductDTO,'body'),
-  async (req, res) => {
+  validatorHandler(createProductDTO,'body'),
+  (req, res) => {
   const body = req.body;
-  const newProduct = await service.create(body);
+  const newProduct = service.create(body);
   res.status(201).json(newProduct);
 });
 
 router.patch('/:id',
-  validatosHandler(getProductDTO,'params'),
-  validatosHandler(updateProductDTO,'body'),
+  validatorHandler(getProductDTO,'params'),
+  validatorHandler(updateProductDTO,'body'),
 
-  async (req, res, next) => {
+  (req, res, next) => {
   try {
     const { id } = req.params;
     const body = req.body;
-    const product = await service.update(id, body);
+    const product = service.update(id, body);
     res.json(product);
   } catch (error) {
     next(error);
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  const product = await service.delete(id);
+  const product = service.delete(id);
   res.json(product);
 });
 
